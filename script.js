@@ -1,3 +1,7 @@
+// change 1
+// change 2
+// change 3
+
 function add(a, b) {
   return a + b;
 }
@@ -24,11 +28,7 @@ function calculateAndDisplay(fn) {
   document.getElementById('result').textContent = fn(a, b);
 }
 
-document.getElementById('btn-add')
-  .addEventListener('click', () => calculateAndDisplay(add));
-
-document.getElementById('btn-subtract')
-  .addEventListener('click', () => calculateAndDisplay(subtract));
-
-document.getElementById('btn-multiply')
-  .addEventListener('click', () => calculateAndDisplay(multiply));
+['add', 'subtract', 'multiply'].forEach(op => {
+  document.getElementById(`btn-${op}`)
+    .addEventListener('click', () => calculateAndDisplay(window[op]));
+});
